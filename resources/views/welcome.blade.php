@@ -26,6 +26,17 @@
                     <a href="{{ url('/cooling') }}"><i class="fa fa-thermometer-empty fa-2x" aria-hidden="true"></i> Cooling</a>
                     <a href="{{ url('/security') }}"><i class="fa fa-shield fa-2x" aria-hidden="true"></i> Security</a>
                 </div>
+
+
+            </div>
+            <div class="quick-reference">
+              <ul>
+                <li>Front door shut <i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                <li>Front door deadlocked <i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                <li>Back door shut <i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                <li>Back door deadlocked <i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                <li>Camera armed <i class="fa fa-times-circle" aria-hidden="true"></i></li>
+              </ul>
             </div>
         </div>
     </body>

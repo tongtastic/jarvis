@@ -45,6 +45,41 @@ html, body {
     text-transform: uppercase;
 }
 
+i {
+
+  &.fa-lightbulb-o {
+    color: #F9C80E;
+  }
+
+  &.fa-thermometer-full {
+    color: #F86624;
+  }
+
+  &.fa-thermometer-empty {
+    color: #27A2DD;
+  }
+
+  &.fa-shield {
+    color: #3FB9BB;
+  }
+}
+
 .m-b-md {
     margin-bottom: 30px;
+}
+
+.quick-reference li {
+    list-style: none;
+
+    i {
+      margin-left: 10px;
+
+      &.fa-check-circle {
+        color: #3FB9BB;
+      }
+
+      &.fa-times-circle {
+        color: #EA3546;
+      }
+    }
 }

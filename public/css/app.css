@@ -10782,8 +10782,40 @@ html, body {
   text-transform: uppercase;
 }
 
+i.fa-lightbulb-o {
+  color: #F9C80E;
+}
+
+i.fa-thermometer-full {
+  color: #F86624;
+}
+
+i.fa-thermometer-empty {
+  color: #27A2DD;
+}
+
+i.fa-shield {
+  color: #3FB9BB;
+}
+
 .m-b-md {
   margin-bottom: 30px;
+}
+
+.quick-reference li {
+  list-style: none;
+}
+
+.quick-reference li i {
+  margin-left: 10px;
+}
+
+.quick-reference li i.fa-check-circle {
+  color: #3FB9BB;
+}
+
+.quick-reference li i.fa-times-circle {
+  color: #EA3546;
 }
 
 /*# sourceMappingURL=app.css.map */
