@@ -23,16 +23,24 @@ Route::get('/security', function () {
     return view( 'security' );
 });
 
-Route::get('/heating', function () {
-    return view( 'heating' );
+Route::group(['prefix' => 'heating'], function () {
+
+  Route::get('/', function () {
+      return view( 'heating' );
+  });
+
+  Route::get('/boost-heating', 'heatingController@boostHeating');
+
+  Route::get('/boost-hotwater', 'heatingController@boostHotWater');
+
 });
 
-Route::get('/heating/boost-heating', 'heatingController@boostHeating');
+Route::group(['prefix' => 'lighting'], function () {
 
-Route::get('/heating/boost-hotwater', 'heatingController@boostHotWater');
+  Route::get('/', function () {
+      return view( 'lighting' );
+  });
 
-Route::get('/lighting', function () {
-    return view( 'lighting' );
+  Route::get('/{id}', 'LightingController@toggle');
+
 });
-
-Route::get('/lighting/{id}', 'LightingController@toggle');
