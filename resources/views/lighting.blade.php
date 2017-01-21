@@ -22,8 +22,10 @@
 
                 <div class="links">
                     <a href="{{ url('/') }}">< Back</a>
-                    <a href="{{ url('/lighting/living-room') }}">Living Room</a>
-                    <a href="{{ url('/lighting/yard') }}">Yard</a>
+                    <a href="{{ url('/lighting/1on') }}">Living Room</a>
+                    <a href="{{ url('/lighting/2on') }}">Kitchen</a>
+                    <a href="{{ url('/lighting/3on') }}">Stairs</a>
+                    <a href="{{ url('/lighting/4on') }}">Yard</a>
                 </div>
             </div>
         </div>
