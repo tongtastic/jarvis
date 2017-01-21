@@ -22,10 +22,11 @@
 
                 <div class="links">
                     <a href="{{ url('/') }}">< Back</a>
-                    <a href="{{ url('/lighting/1on') }}">Living Room</a>
-                    <a href="{{ url('/lighting/2on') }}">Kitchen</a>
-                    <a href="{{ url('/lighting/3on') }}">Stairs</a>
-                    <a href="{{ url('/lighting/4on') }}">Yard</a>
+                    <a href="{{ url('/lighting/control/1') }}">Living Room</a>
+                    <a href="{{ url('/lighting/control/2') }}">Kitchen</a>
+                    <a href="{{ url('/lighting/control/3') }}">Stairs</a>
+                    <a href="{{ url('/lighting/control/4') }}">Yard</a>
+                    <a href="{{ url('/lighting/control/5') }}">All</a>
                 </div>
             </div>
         </div>

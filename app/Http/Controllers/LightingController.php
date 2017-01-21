@@ -36,12 +36,43 @@ class LightingController extends Controller
      *
      * @return Response
      */
-    public function triggerRelay( $arg )
+    public function relayControl( $arg )
     {
 
       $client = new Client();
 
-      $url = $this->particleUrl.'/'.$this->deviceId.'/lights';
+      $url = $this->particleUrl.'/'.$this->deviceId.'/control';
+
+      $args = [
+        'form_params' => [
+          'access_token' => $this->particleToken,
+          'args' => $arg
+        ]
+      ];
+
+      $request = $client->request(
+        'POST',
+        $url,
+        $args
+      );
+
+      $response = $request->getBody()->getContents();
+
+      return $response;
+
+    }
+
+    /**
+     * Get Relay Status.
+     *
+     * @return Response
+     */
+    public function relayStatus( $arg )
+    {
+
+      $client = new Client();
+
+      $url = $this->particleUrl.'/'.$this->deviceId.'/status';
 
       $args = [
         'form_params' => [
@@ -66,75 +97,64 @@ class LightingController extends Controller
 
 /*
 
-sample code flashed to particle device
+//This #include statement was automatically added by the Particle IDE.
+#include "RelayShield/RelayShield.h"
 
-// -----------------------------------
-// Controlling Lights with J.A.R.V.I.S.
-// -----------------------------------
+// Create an instance of the RelayShield library, so we have something to talk to
+RelayShield myRelays;
 
-int relay1 = D3;
-int relay2 = D4;
-int relay3 = D5;
-int relay4 = D6;
+// Create prototypes of the Spark.functions we'll declare in setup()
+int relay(String command);
+int status(String command);
 
-void setup()
-{
+void setup() {
+    //.begin() sets up a couple of things and is necessary to use the rest of the functions
+    myRelays.begin();
 
-   pinMode(relay1, OUTPUT);
-   pinMode(relay2, OUTPUT);
-   pinMode(relay3, OUTPUT);
-   pinMode(relay4, OUTPUT);
+    // Register Spark.functions and assign them names
+    Particle.function("control", relay);
+    Particle.function("status", status);
+}
 
-   Particle.function("lights",controlLights);
+void loop() {
+    // Nothing needed here, functions will just run when called
+}
 
-   digitalWrite(relay1, LOW);
-   digitalWrite(relay2, LOW);
-   digitalWrite(relay3, LOW);
-   digitalWrite(relay4, LOW);
+int relay(String command){
+    // Ritual incantation to convert String into Int
+    char inputStr[64];
+    command.toCharArray(inputStr,64);
+    int i = atoi(inputStr);
+
+    // Turn the desired relay on and check for status
+    if(i == 5) {
+        myRelays.allOn();
+    } else {
+        if(myRelays.isOn(i)) {
+            myRelays.off(i);
+            return 0;
+        } else {
+            myRelays.on(i);
+            return 1;
+        }
+
+    }
 
 }
 
-void loop()
-{
-}
+int status(String command) {
+    // Ritual incantation to convert String into Int
+    char inputStr[64];
+    command.toCharArray(inputStr,64);
+    int i = atoi(inputStr);
 
-int controlLights(String command) {
+    // Check for status
+    if(myRelays.isOn(i)) {
+        return 1;
+    } else {
+        return 0;
+    }
 
-    if (command=="1on") {
-        digitalWrite(relay1,HIGH);
-        return 1;
-    }
-    else if (command=="2on") {
-        digitalWrite(relay2,HIGH);
-        return 1;
-    }
-    else if (command=="3on") {
-        digitalWrite(relay3,HIGH);
-        return 1;
-    }
-    else if (command=="4on") {
-        digitalWrite(relay4,HIGH);
-        return 1;
-    }
-    else if (command=="1off") {
-        digitalWrite(relay1,LOW);
-        return 0;
-    }
-    else if (command=="2off") {
-        digitalWrite(relay2,LOW);
-        return 0;
-    }
-    else if (command=="3off") {
-        digitalWrite(relay3,LOW);
-        return 0;
-    }
-    else if (command=="4off") {
-        digitalWrite(relay4,LOW);
-        return 0;
-    }
-    else {
-        return -1;
-    }
 }
 
 */

@@ -41,6 +41,8 @@ Route::group(['prefix' => 'lighting'], function () {
       return view( 'lighting' );
   });
 
-  Route::get('/{arg}', 'LightingController@triggerRelay', ['id', 'arg']);
+  Route::get('/control/{arg}', 'LightingController@relayControl', ['id', 'arg']);
+
+  Route::get('/status/{arg}', 'LightingController@relayStatus', ['id', 'arg']);
 
 });
