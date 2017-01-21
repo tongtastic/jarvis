@@ -102,35 +102,35 @@ int controlLights(String command) {
 
     if (command=="1on") {
         digitalWrite(relay1,HIGH);
-        return '1on';
+        return 1;
     }
     else if (command=="2on") {
         digitalWrite(relay2,HIGH);
-        return '2on';
+        return 1;
     }
     else if (command=="3on") {
         digitalWrite(relay3,HIGH);
-        return '3on';
+        return 1;
     }
     else if (command=="4on") {
         digitalWrite(relay4,HIGH);
-        return '4on';
+        return 1;
     }
     else if (command=="1off") {
         digitalWrite(relay1,LOW);
-        return '1off';
+        return 0;
     }
     else if (command=="2off") {
         digitalWrite(relay2,LOW);
-        return '20ff';
+        return 0;
     }
     else if (command=="3off") {
         digitalWrite(relay3,LOW);
-        return '3off';
+        return 0;
     }
     else if (command=="4off") {
         digitalWrite(relay4,LOW);
-        return '4off';
+        return 0;
     }
     else {
         return -1;
