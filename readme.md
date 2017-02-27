@@ -1,7 +1,7 @@
 # J.A.R.V.I.S. Home Automation Controller  
 ## Installation  
 * Clone the repo to a local folder
-* Duplicate .env.example and rename .env
+* Duplicate `.env.example` file and rename to `.env`
 * Run the following commands:  
 `composer install`  
 `npm install`  
