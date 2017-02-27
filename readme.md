@@ -1,5 +1,5 @@
-#J.A.R.V.I.S. Home Automation Controller  
-##Installation  
+# J.A.R.V.I.S. Home Automation Controller  
+## Installation  
 * Clone the repo to a local folder
 * Duplicate .env.example and rename .env
 * Run the following commands:  
